@@ -33,7 +33,7 @@ cloudflaretest
 realbandwidth=$[$max/128]
 endtime=$(date +%s)
 echo "从服务器获取详细信息"
-curl --$ips --resolve service.baipiaocf.ml:443:$anycast --retry 1 -s -X POST https://service.baipiaocf.ml -o temp.txt --connect-timeout 2 --max-time 3
+curl --$ips --resolve yunrong.xyz:443:$anycast --retry 1 -s -X POST https://yunrong.xyz -o temp.txt --connect-timeout 2 --max-time 3
 clear
 if [ ! -f "temp.txt" ]
 then
@@ -146,7 +146,7 @@ do
 				do
 					if [ ! -f "meta.txt" ]
 					then
-						curl --$ips --retry 1 -s https://service.baipiaocf.ml/meta -o meta.txt --connect-timeout 2 --max-time 3
+						curl --$ips --retry 1 -s https://yunrong.xyz/meta -o meta.txt --connect-timeout 2 --max-time 3
 					else
 						asn=$(grep asn= meta.txt | cut -f 2- -d'=')
 						isp=$(grep isp= meta.txt | cut -f 2- -d'=')
@@ -155,7 +155,7 @@ do
 						city=$(grep city= meta.txt | cut -f 2- -d'=')
 						longitude=$(grep longitude= meta.txt | cut -f 2- -d'=')
 						latitude=$(grep latitude= meta.txt | cut -f 2- -d'=')
-						curl --$ips --retry 1 https://service.baipiaocf.ml -o data.txt -# --connect-timeout 2 --max-time 3
+						curl --$ips --retry 1 https://yunrong.xyz -o data.txt -# --connect-timeout 2 --max-time 3
 						break
 					fi
 				done
@@ -167,7 +167,7 @@ do
 				do
 					if [ ! -f "meta.txt" ]
 					then
-						curl --$ips --resolve service.baipiaocf.ml:443:$resolveip --retry 1 -s https://service.baipiaocf.ml/meta -o meta.txt --connect-timeout 2 --max-time 3
+						curl --$ips --resolve yunrong.xyz:443:$resolveip --retry 1 -s https://yunrong.xyz/meta -o meta.txt --connect-timeout 2 --max-time 3
 					else
 						asn=$(grep asn= meta.txt | cut -f 2- -d'=')
 						isp=$(grep isp= meta.txt | cut -f 2- -d'=')
@@ -176,7 +176,7 @@ do
 						city=$(grep city= meta.txt | cut -f 2- -d'=')
 						longitude=$(grep longitude= meta.txt | cut -f 2- -d'=')
 						latitude=$(grep latitude= meta.txt | cut -f 2- -d'=')
-						curl --$ips --resolve service.baipiaocf.ml:443:$resolveip --retry 1 https://service.baipiaocf.ml -o data.txt -# --connect-timeout 2 --max-time 3
+						curl --$ips --resolve yunrong.xyz:443:$resolveip --retry 1 https://yunrong.xyz -o data.txt -# --connect-timeout 2 --max-time 3
 						break
 					fi
 				done
